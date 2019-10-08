@@ -3,9 +3,10 @@
 **Mandatory:**
 
 * Name convention for mountpoints:
-  * /orcl/bin  (from datastore)
-  * /orcl/data (if <2TB - from datastore, if >2TB - from RDM)
-  * /orcl/arch (from datastore)
+  * /u01/bin  (from datastore)
+  * /u02/data (if <2TB - from datastore, if >2TB - from RDM)
+  * /u03/redo (from datastore)
+  * /u04/arch (from datastore)
 * Filesystems block size:
   * data - 8/16KB (depends on db_block_size)
   * redo/arch - 512B
