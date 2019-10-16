@@ -3,10 +3,12 @@
 **Mandatory:**
 
 * Name convention for mountpoints:
-  * /u01/bin  (from datastore)
-  * /u02/data (if <2TB - from datastore, if >2TB - from RDM)
-  * /u03/redo (from datastore)
-  * /u04/arch (from datastore)
+  * /u01  (from datastore)
+     * Example of ORACLE_HOME: /u01/app/oracle/12.2.0.1
+  * /u02 (if <2TB - from datastore, if >2TB - from RDM)
+    * /u02/data
+    * /u02/redo
+  * /u03/arch (from datastore)
 * Filesystems block size:
   * data - 8/16KB (depends on db_block_size)
   * redo/arch - 512B
