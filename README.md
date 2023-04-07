@@ -9,7 +9,7 @@ Main areas of interest are RDBMS Oracle, Postgres, Linux, etc.
 ## Table of Contents
 
 TBD: add links to my directories
-If your README is long, add a table of contents to make it easy for users to find what they need.
+
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -18,11 +18,11 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Installation
 
-No special steps are required until it noticed explicitely 
+No action is required until explicit instructions are given.
 
 ## Usage
 
-No special steps are required until it noticed explicitely 
+No action is required until explicit instructions are given.
 
 ## Credits
 
@@ -57,11 +57,12 @@ SOFTWARE.
 
 ---
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
 
 ## Badges
 
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+
+/github/downloads/:user/:repo/total
 
 Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
 
