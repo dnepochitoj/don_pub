@@ -18,8 +18,6 @@ Main areas of interest are RDBMS Oracle, Postgres, Linux, etc.
 - [Credits](#credits)
 - [License](#license)
 
-TBD: add links to my directories
-
 ## Installation
 
 No action is required until explicit instructions are given.
@@ -32,8 +30,10 @@ No action is required until explicit instructions are given.
 
 * [https://choosealicense.com/](https://choosealicense.com/)
 
+<!--
 TBD: List your collaborators, if any, with links to their GitHub profiles.
 TBD: If you followed tutorials, include links to those here as well.
+-->
 
 ## License
 
