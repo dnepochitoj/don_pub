@@ -10,7 +10,6 @@ Main areas of interest are RDBMS Oracle, Postgres, Linux, etc.
 
 TBD: add links to my directories
 
-
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
@@ -57,7 +56,7 @@ SOFTWARE.
 
 ---
 
-
+<!--
 ## Badges
 
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
@@ -77,3 +76,4 @@ If you created an application or package and would like other developers to cont
 ## Tests
 
 Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+-->
