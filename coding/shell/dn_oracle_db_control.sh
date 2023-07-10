@@ -26,22 +26,28 @@ readonly DB_COMMAND=${5:-status}
 readonly SRVCTL_FILE=$(command -v "${DB_HOME}"/bin/srvctl)
 readonly SQLPLUS_FILE=$(command -v "${DB_HOME}"/bin/sqlplus)
 
+prt()
+{
+printf "### oracle_db_control: $1" "${@:2}"
+}
+
 # start/stop/.. oracle db w srvctl
 oracle_db_control_srvctl()
 {
-    printf "### oracle_db_control_srvctl: begin\n"
-    printf "\n"
+    printf "### oracle_db_control_srvctl: begin\n\n"
     time "${SRVCTL_FILE}" "${DB_COMMAND}" database -d "${DB_NAME}" -verbose
-    printf "\n"
-    printf "### oracle_db_control_srvctl: end\n"
+    printf "\n### oracle_db_control_srvctl: end\n"
 }
 
 # start/stop/.. oracle db w sqlplus
 oracle_db_control_sqlplus()
 {
-    case "${DB_COMMAND}" in
-        status)
-            sqlplus -s / as sysdba <<'EOF'
+    if [ "${DB_COMMAND}" != "status" ]; then
+            prt "ERROR: incorrect input for command. Correct commands: status\n"
+            exit 1
+    fi
+
+    sqlplus -s / as sysdba <<'EOF'
 set tim on
 set timing on
 set echo on
@@ -53,31 +59,22 @@ select 'Database ' || d.NAME
 from v$database d join v$instance i on lower(d.name) = lower(i.INSTANCE_NAME);
 exit;
 EOF
-            ;;
-        *)
-            printf "### oracle_db_control_sqlplus: ERROR: incorrect input for command. Correct commands: status\n"
-            exit 1
-            ;;
-    esac
-
-    printf "### oracle_db_control_sqlplus: end\n"
+    prt "end\n"
 }
 
 # start/stop/.. oracle db w srvctl or sqlplus
 oracle_db_control()
 {
-    printf "\n"
-    printf "%s\n" "${DIVIDER_LINE}"
-    printf "### oracle_db_control: BEGIN: for %s %s %s %s %s\n" "${DB_HOST}" "${DB_PORT}" "${DB_NAME}" "${DB_HOME}" "${DB_COMMAND}"
-    printf "\n"
-
-    printf "### oracle_db_control: %s\n" "$SRVCTL_FILE"
+    printf "\n%s\n" "${DIVIDER_LINE}"
+    prt "BEGIN: for %s %s %s %s %s\n\n" "${DB_HOST}" "${DB_PORT}" "${DB_NAME}" "${DB_HOME}" "${DB_COMMAND}"
+    prt "%s\n" "$SRVCTL_FILE"
 
     # check input commands: start/stop/status
-    if ! [[ "${DB_COMMAND}" == "start" || "${DB_COMMAND}" == "stop" || "${DB_COMMAND}" == "status" ]]; then
-        printf "### oracle_db_control: ERROR: incorrect input for command. Correct commands: start, stop,  status\n"
-        exit 1
-    fi
+    case ${DB_COMMAND} in
+        start|stop|status) ;;
+        *)   prt "ERROR: incorrect input for command. Correct commands: start, stop,  status\n"
+             exit 1 ;;
+    esac
 
     # choose srvctl or sqlplus to execute command for oracle db
     if command -v "${SRVCTL_FILE}" &> /dev/null; then
@@ -89,9 +86,7 @@ oracle_db_control()
     fi
 
     printf "\n"
-    printf "### oracle_db_control: END: for %s %s %s %s %s\n" "${DB_HOST}" "${DB_PORT}" "${DB_NAME}" "${DB_HOME}" "${DB_COMMAND}"
-    printf "%s\n" "${DIVIDER_LINE}"
-    printf "\n"
+    prt "END: for %s %s %s %s %s\n%s\n\n" "${DB_HOST}" "${DB_PORT}" "${DB_NAME}" "${DB_HOME}" "${DB_COMMAND}" "${DIVIDER_LINE}"
 }
 
 oracle_db_control "${DB_HOST}" "${DB_PORT}" "${DB_NAME}" "${DB_HOME}" "${DB_COMMAND}"
