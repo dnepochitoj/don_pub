@@ -4,8 +4,8 @@
 # title         : dn_oracle_db_control.sh
 # description   : To control Oracle DB start/stop/..
 # author        : D.Nepochitoj
-# date          : 2023-06-25
-# version       : 000.001
+# date          : 2023-07-10
+# version       : 000.002
 # usage         : ./dn_oracle_db_control.sh "${DB_HOST}" "${DB_PORT}" "${DB_NAME}" "${DB_HOME}" "${DB_COMMAND}"
 # notes         :
 # bash_version  : 4.2.46(2)-release
@@ -34,16 +34,16 @@ printf "### oracle_db_control: $1" "${@:2}"
 # start/stop/.. oracle db w srvctl
 oracle_db_control_srvctl()
 {
-    printf "### oracle_db_control_srvctl: begin\n\n"
+    prt "srvctl: begin\n\n"
     time "${SRVCTL_FILE}" "${DB_COMMAND}" database -d "${DB_NAME}" -verbose
-    printf "\n### oracle_db_control_srvctl: end\n"
+    prt "srvctl: end\n"
 }
 
 # start/stop/.. oracle db w sqlplus
 oracle_db_control_sqlplus()
 {
     if [ "${DB_COMMAND}" != "status" ]; then
-            prt "ERROR: incorrect input for command. Correct commands: status\n"
+            prt "sqlplus: ERROR: incorrect input for command. Correct commands: status\n"
             exit 1
     fi
 
@@ -79,10 +79,10 @@ oracle_db_control()
     # choose srvctl or sqlplus to execute command for oracle db
     if command -v "${SRVCTL_FILE}" &> /dev/null; then
         oracle_db_control_srvctl "${DB_COMMAND}"
-        printf "### oracle_db_control: srvctl: end\n"
+        prt "srvctl: end\n"
     else
         oracle_db_control_sqlplus "${DB_COMMAND}"
-        printf "### oracle_db_control: sqlplus: end\n"
+        prt "sqlplus: end\n"
     fi
 
     printf "\n"
