@@ -66,8 +66,8 @@ printf "%-16s\n\
   '# description' ": ${dscrpt}" \
   '# author' ": $name" \
   '# date' ": $today" \
-  '# depends on' ": " \
   '# version' ": $vnum" \
+  '# depends on' ": " \
   '# usage' ": ./$title" \
   '# notes' ': ' \
   '# bash_version' ": ${BASH_VERSION}" \
