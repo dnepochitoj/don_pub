@@ -4,9 +4,9 @@
 # title           : create_script_w_header.sh
 # description     : This script will make a header for a bash script.
 # author		      : bgw
-# date            : 20111101
-# version         : 0.4    
-# usage		        : bash mkscript.sh
+# date            : 2023-07-13
+# version         : 001.001
+# usage		        : bash create_script_w_header.sh
 # notes           : Install Vim and Emacs to use this script.
 # bash_version    : 4.1.5(1)-release
 ########################################
@@ -66,6 +66,7 @@ printf "%-16s\n\
   '# description' ": ${dscrpt}" \
   '# author' ": $name" \
   '# date' ": $today" \
+  '# depends on' ": " \
   '# version' ": $vnum" \
   '# usage' ": ./$title" \
   '# notes' ': ' \
