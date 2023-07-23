@@ -4,18 +4,20 @@
 # title         : don_oracle_db_control.sh
 # description   : To control Oracle DB with start/stop/status
 # author        : D.Nepochitoj
-# date          : 2023-07-16
-# version       : 001.006
+# date          : 2023-07-22
+# version       : 001.007
 # usage         : see "core::get_help" below
 # notes         : depends on core.sh
 # bash_version  : 4.2.46(2)-release
 ########################################
 
+
 ########################################
 # modules
 ########################################
 
-source core.sh
+source lib/logging_levels.sh
+source lib/core.sh
 
 ########################################
 # set variables
@@ -45,14 +47,14 @@ readonly REGEXP_IS_ORACLE_SID='^[a-zA-Z][a-zA-Z0-9_\$#]*'
 readonly REGEXP_IS_ORACLE_HOME='^/'
 
 #readonly DIVIDER_LINE="########################################"
-readonly DIVIDER_LINE=""
+#readonly DIVIDER_LINE=""
 
 # set for formatting time
 readonly TIMEFORMAT='%3lR'      ### TIMEFORMAT='%0lR'
 
 SQLPLUS_ONLY_FLAG="false"
 
-printf "%s\n" "${DIVIDER_LINE}"
+#printf "%s\n" "${DIVIDER_LINE}"
 
 while getopts "hsvGm:p:d:o:c:S" option; do
     case "${option}" in
@@ -149,7 +151,7 @@ if ! [[ -f "${SRVCTL_FILE}" || -f "${SQLPLUS_FILE}" ]]; then
 fi
 
 #printf "\n"
-printf "%s\n" "${DIVIDER_LINE}"
+#printf "%s\n" "${DIVIDER_LINE}"
 
 logging_levels::debug "Parameters passed:"
 logging_levels::dump_var DB_MACHINE DB_PORT ORACLE_SID ORACLE_HOME DB_COMMAND
@@ -311,7 +313,7 @@ oracle_db_control()
 ########################################
 main()
 {
-    printf "%s\n" "${DIVIDER_LINE}"
+#    printf "%s\n" "${DIVIDER_LINE}"
     core::get_timestamp
     time oracle_db_control "${DB_MACHINE}" "${DB_PORT}" "${ORACLE_SID}" "${ORACLE_HOME}" "${DB_COMMAND}"
     core::exit_normal
