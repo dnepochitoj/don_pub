@@ -1,9 +1,9 @@
 # Stash for IT staff
 
 
-![GitHub language count](https://img.shields.io/github/languages/count/dnepochitoj/pub)
-![GitHub top language](https://img.shields.io/github/languages/top/dnepochitoj/pub)
-![GitHub all releases](https://img.shields.io/github/downloads/dnepochitoj/pub/total)
+![GitHub language count](https://img.shields.io/github/languages/count/dnepochitoj/don_pub)
+![GitHub top language](https://img.shields.io/github/languages/top/dnepochitoj/don_pub)
+![GitHub all releases](https://img.shields.io/github/downloads/dnepochitoj/don_pub/total)
 
 ## Description
 
