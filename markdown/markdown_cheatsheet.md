@@ -1,20 +1,29 @@
 # markdown cheat sheet
 
-* Overview
-* Headings
-* Paragraphs
-* Line Breaks
-* Emphasis
-* Blockquotes
-* Lists
-* Code
-* Horizontal Rules
-* Links
-* Images
-* Escaping Characters
-* Footnotes
-* Abbreviations
-* Table
+- [markdown cheat sheet](#markdown-cheat-sheet)
+  - [Headings](#headings)
+- [Heading level 1](#heading-level-1)
+  - [Heading level 2](#heading-level-2)
+    - [Heading level 3](#heading-level-3)
+      - [Heading level 4](#heading-level-4)
+        - [Heading level 5](#heading-level-5)
+  - [Bold](#bold)
+  - [Italic](#italic)
+  - [Blockquotes with Multiple Paragraphs](#blockquotes-with-multiple-paragraphs)
+  - [Ordered Lists](#ordered-lists)
+  - [Unordered Lists](#unordered-lists)
+  - [Code / Code Blocks](#code--code-blocks)
+    - [Syntax highlighting](#syntax-highlighting)
+  - [Spoilers](#spoilers)
+  - [Images / Linking Images](#images--linking-images)
+  - [Horizontal Rules](#horizontal-rules)
+  - [Links / Adding Titles](#links--adding-titles)
+  - [URLs and Email Addresses](#urls-and-email-addresses)
+  - [Escaping Characters](#escaping-characters)
+  - [Footnotes](#footnotes)
+  - [Abbreviations](#abbreviations)
+  - [Table](#table)
+
 
 ## Headings
 
@@ -103,6 +112,21 @@ select * from dual;
 ~~~sql
 select * from dual;
 ~~~
+
+## Spoilers
+
+
+<details>
+  <summary>Spoiler warning</summary>
+
+  Spoiler text. Note that it's important to have a space after the summary tag. You should be able to write any markdown you want inside the `<details>` tag... just make sure you close `<details>` afterward.
+
+  ```javascript
+  console.log("I'm a code block!");
+  ```
+
+</details>
+
 
 ## Images / Linking Images
 
