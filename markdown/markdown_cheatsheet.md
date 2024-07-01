@@ -1,4 +1,5 @@
-# Markdown Guide: Basic Syntax
+# markdown cheat sheet
+
 * Overview
 * Headings
 * Paragraphs
@@ -14,8 +15,6 @@
 * Footnotes
 * Abbreviations
 * Table
-
-<https://www.markdownguide.org/basic-syntax>
 
 ## Headings
 
